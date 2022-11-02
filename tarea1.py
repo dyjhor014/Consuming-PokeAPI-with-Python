@@ -5,7 +5,6 @@ os.system("clear")
 
 #Cargamos el CSV con PANDAS
 data = pd.read_csv('libros.csv', index_col='id_libro')
-new_data = data
 
 #Creamos la clase libro#
 class Libro:
@@ -23,6 +22,20 @@ class Libro:
 
     def listar_libros():
         return print(data)
+    
+    def agregar_libro():
+        print("Ingrese los datos para agregar libro")
+        print("*"*50)
+        # Lista para agregar al CSV
+        new_libro = [len(data.index)+1,input("Ingresa el titulo del libro\n"),input("Ingresa el genero\n"),int(input("Ingresa el isbn\n")),input("Ingresa la editorial\n"),input("Ingresa el autor\n")]
+        with open('libros.csv', 'a', newline='') as f_object:
+            writer_object = writer(f_object)
+            writer_object.writerow(new_libro)
+            f_object.close()
+        return print(f"\n{'*'*20}Se agregó el siguiente libro:{'*'*30}\nId: {new_libro[0]}\nTitulo: {new_libro[1]}\nGénero: {new_libro[2]}\nIsbn: {new_libro[3]}\nEditorial: {new_libro[4]}\nAutor: {new_libro[5]}")
+
+    def mostrar_libro(self):
+        return print(f"El libros es: {self.titulo}")
 
     def eliminar_libro(self):
         answer_pos = data[data.index == id_eliminar]
@@ -43,6 +56,8 @@ if opcion_elegida == "1":
     Libro.cargar_libros()
 if opcion_elegida == "2":
     Libro.listar_libros()
+if opcion_elegida == "3":
+    Libro.agregar_libro()
 if opcion_elegida == "4":
     id_eliminar = int(input("Ingresa el id del libro que deseas eliminar\n"))
     Libro.eliminar_libro(id_eliminar)
