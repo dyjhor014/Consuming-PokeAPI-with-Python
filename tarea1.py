@@ -48,6 +48,26 @@ class Libro:
             return print(new_data)
         else:
             return print("Cancelaste la operacion")
+    
+    def buscar_libro1():
+        print("Buscar libro por isbn o titulo")
+        buscar = input("Desea buscar por isbn (i) o por titulo (t)\n").lower()
+        while buscar not in ("i","t"):
+            buscar = input("Debes ingresar (i) por isbn  o (t) por titulo\n").lower()
+        if buscar == "i":
+            isbn = int(input("Ingresa el número de isbn\n"))
+            buscar_isbn = data[data["isbn"] == isbn]
+            if buscar_isbn is True:
+                return print(f"{'*'*30}\nEl libro buscado es: {buscar_isbn}\n")
+            else:
+                return print("isbn ingresado no existe o está mal escrito")
+        if  buscar == "t":
+            titulo = input("Ingresa el titulo del libro\n")
+            buscar_titulo = data[data["titulo"].str.contains(titulo)]
+            if buscar_titulo is True:
+                return print(f"{'*'*30}\nEl libro buscado es:\n{buscar_titulo}")
+            else:
+                return print("titulo ingresado no existe o está mal escrito")
 
 opcion_elegida = str(input("\nIngresa un número\n"))
 while opcion_elegida not in ("1","2","3","4","5","6","7","8","9","10"):
@@ -61,3 +81,7 @@ if opcion_elegida == "3":
 if opcion_elegida == "4":
     id_eliminar = int(input("Ingresa el id del libro que deseas eliminar\n"))
     Libro.eliminar_libro(id_eliminar)
+if opcion_elegida == "5":
+    Libro.buscar_libro1()
+if opcion_elegida == "6":
+    pass
