@@ -35,3 +35,48 @@ print("Opción (10): Guardar libros en archivo local.")
 opcion_elegida = str(input("\nIngrese el número acorde a su solicitud:\n"))
 while opcion_elegida not in ("1","2","3","4","5","6","7","8","9","10"):
     opcion_elegida = str(input("Debes ingresar números del 1 al 10. Ingrese nuevamente:\n"))
+
+
+
+data = pd.read_csv('libros.csv', index_col = 'id_libro')
+print (data)
+
+
+
+#Opcion 9
+if opcion_elegida == "9":
+    print("\nEdición y actualización de datos")
+    print (data)
+    id_e = int(input("\nIngrese el ID del libro a editar: "))
+    print("\nQue dato del libro desea actualizar:\nTitulo -> t\nGénero -> g\nISBN -> i \nEditorial -> e \nAutor -> a")
+    actualizar = input("Ingrese la letra minúscula correspondiente: ")
+    if actualizar == "t":
+        titulo_a = input("Ingrese el nuevo título: ")
+        data.at[id_e,'titulo'] = titulo_a
+        # print(data.at[id_e-1,'titulo'])
+        print("\n****Se ha actualizado el título con éxito****")
+        print(data)
+
+    if actualizar == "g":
+        genero_a = input("Ingrese el nuevo género: ")
+        data.at[id_e,'genero'] = genero_a
+        print("\nSe ha actualizado el género con éxito")
+        print(data)
+
+    if actualizar == "i":
+        genero_a = input("Ingrese el nuevo ISBN: ")
+        data.at[id_e,'isbn'] = genero_a
+        print("\nSe ha actualizado el ISN con éxito")
+        print(data)
+
+    if  actualizar == "e":
+        editorial_e = input("Ingrese la nueva editorial: ")
+        data.at[id_e,'editorial'] = editorial_e
+        print("\n****Se ha actualizado la editorial con éxito****")
+        print(data)
+
+    if actualizar == "a":
+        autor_e = input("Ingrese el nuevo autor(es): ")
+        data.at[id_e,'autor'] = autor_e
+        print("\n****Se ha actualizado el autor(es) con éxito****")
+        print(data)
