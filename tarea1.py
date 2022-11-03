@@ -1,5 +1,5 @@
 import os
-from csv import writer
+import csv
 import pandas as pd
 os.system("clear")
 
