@@ -79,3 +79,22 @@ if opcion_elegida == "9":
         data.at[id_e,'autor'] = autor_e
         print("\n****Se ha actualizado el autor(es) con éxito****")
         print(data)
+
+
+
+#Opcion 10
+if opcion_elegida == "10":
+    
+    cantidad = int(input("Ingrese la cantidad de libros a guardar: "))
+    with open ('libros.csv', 'a', newline='') as archivo_csv:
+        writer = csv.writer(archivo_csv, delimiter=',')
+        for i in range (cantidad):
+            titulo_i = input("Ingrese el título del libro: ") 
+            genero_i = input( "Ingrese el género del libro: ")
+            isbn_i = input("Ingrese el ISBN del libro: ")
+            editorial_i = input("Ingrese la editorial: ")
+            autores_i = input("Ingrese el autor(es) del libro: ")
+            lista_i = [len(data)+1, titulo_i, genero_i, isbn_i, editorial_i, autores_i]
+            writer.writerow(lista_i)
+
+    print(f"Se agregaron {cantidad} libro(s). ")
