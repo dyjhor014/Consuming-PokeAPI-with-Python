@@ -85,7 +85,20 @@ class Libro:
             genero = input("Ingresa el nombre del genero\n")
             buscar_genero = data[data["genero"].str.contains(genero)]
             return print(buscar_genero)
-            
+# Menú interactivo
+print("*"*50)
+print("Bienvenido al programa de registro de libros:\n")
+print("Opción (1): Cargar los tres primeros libros listados")
+print("Opción (2): Listar libros.")
+print("Opción (3): Agregar libros.")
+print("Opción (4): Eliminar libro.")
+print("Opción (5): Buscar libro por ISBN o por título.")
+print("Opción (6): Ordenar libros por título.")
+print("Opción (7): Buscar libros por autor, editorial o género.")
+print("Opción (8): Buscar libros por número de autores.")
+print("Opción (9): Editar o actualizar datos de un libro (título, género, ISBN, editorial y autores).")
+print("Opción (10): Guardar libros en archivo local.")
+         
 opcion_elegida = str(input("\nIngresa un número\n"))
 while opcion_elegida not in ("1","2","3","4","5","6","7","8","9","10"):
     opcion_elegida = str(input("Debes ingresar uno de los números del menú del 1 al 10. Ingresa nuevamente tu respuesta\n"))
