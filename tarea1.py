@@ -57,18 +57,35 @@ class Libro:
         if buscar == "i":
             isbn = int(input("Ingresa el número de isbn\n"))
             buscar_isbn = data[data["isbn"] == isbn]
-            if buscar_isbn is True:
-                return print(f"{'*'*30}\nEl libro buscado es: {buscar_isbn}\n")
-            else:
-                return print("isbn ingresado no existe o está mal escrito")
+            return print(f"{'*'*30}\nEl libro buscado es:\n {buscar_isbn}\n")
+
         if  buscar == "t":
             titulo = input("Ingresa el titulo del libro\n")
             buscar_titulo = data[data["titulo"].str.contains(titulo)]
-            if buscar_titulo is True:
-                return print(f"{'*'*30}\nEl libro buscado es:\n{buscar_titulo}")
-            else:
-                return print("titulo ingresado no existe o está mal escrito")
-
+            return print(f"{'*'*30}\nEl libro buscado es:\n {buscar_titulo}\n")
+    
+    def ordenar_libros():
+        return print(f"Libros ordenados por titulo:\n{'*'*30}\n{data.sort_values(by=['titulo'])}\n{'*'*30}")
+    
+    def buscar_libros2():
+        print("Buscar libros por autor, editorial o género")
+        buscar = input("Desea buscar por autor (a), editorial (e) o genero (g)\n").lower()
+        while buscar not in ("a","e","g"):
+            buscar = input("Debes ingresar (a) por autor, (e) por editorial  o (g) por genero\n\n").lower()
+        if buscar == "a":
+            autor = input("Ingresa el nombre del autor\n")
+            buscar_autor = data[data["autor"].str.contains(autor)]
+            print(autor)
+            return print(buscar_autor)
+        if buscar == "e":
+            editorial = input("Ingresa el nombre de la editorial\n")
+            buscar_editorial = data[data["editorial"].str.contains(editorial)]
+            return print(buscar_editorial)
+        if buscar == "g":
+            genero = input("Ingresa el nombre del genero\n")
+            buscar_genero = data[data["genero"].str.contains(genero)]
+            return print(buscar_genero)
+            
 opcion_elegida = str(input("\nIngresa un número\n"))
 while opcion_elegida not in ("1","2","3","4","5","6","7","8","9","10"):
     opcion_elegida = str(input("Debes ingresar uno de los números del menú del 1 al 10. Ingresa nuevamente tu respuesta\n"))
@@ -84,4 +101,6 @@ if opcion_elegida == "4":
 if opcion_elegida == "5":
     Libro.buscar_libro1()
 if opcion_elegida == "6":
-    pass
+    Libro.ordenar_libros()
+if opcion_elegida == "7":
+    Libro.buscar_libros2()
