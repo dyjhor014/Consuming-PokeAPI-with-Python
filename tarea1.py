@@ -39,7 +39,7 @@ while opcion_elegida not in ("1","2","3","4","5","6","7","8","9","10"):
 
 
 data = pd.read_csv('libros.csv', index_col = 'id_libro')
-print (data)
+
 
 
 
@@ -53,29 +53,28 @@ if opcion_elegida == "9":
     if actualizar == "t":
         titulo_a = input("Ingrese el nuevo título: ")
         data.at[id_e,'titulo'] = titulo_a
-        # print(data.at[id_e-1,'titulo'])
         print("\n****Se ha actualizado el título con éxito****")
         print(data)
 
-    if actualizar == "g":
+    elif actualizar == "g":
         genero_a = input("Ingrese el nuevo género: ")
         data.at[id_e,'genero'] = genero_a
         print("\nSe ha actualizado el género con éxito")
         print(data)
 
-    if actualizar == "i":
+    elif actualizar == "i":
         genero_a = input("Ingrese el nuevo ISBN: ")
         data.at[id_e,'isbn'] = genero_a
         print("\nSe ha actualizado el ISN con éxito")
         print(data)
 
-    if  actualizar == "e":
+    elif  actualizar == "e":
         editorial_e = input("Ingrese la nueva editorial: ")
         data.at[id_e,'editorial'] = editorial_e
         print("\n****Se ha actualizado la editorial con éxito****")
         print(data)
 
-    if actualizar == "a":
+    elif actualizar == "a":
         autor_e = input("Ingrese el nuevo autor(es): ")
         data.at[id_e,'autor'] = autor_e
         print("\n****Se ha actualizado el autor(es) con éxito****")
