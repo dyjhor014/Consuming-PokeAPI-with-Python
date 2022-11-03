@@ -33,4 +33,5 @@ print("Opción (9): Editar o actualizar datos de un libro (título, género, ISB
 print("Opción (10): Guardar libros en archivo local.")
 
 opcion_elegida = str(input("\nIngrese el número acorde a su solicitud:\n"))
-
+while opcion_elegida not in ("1","2","3","4","5","6","7","8","9","10"):
+    opcion_elegida = str(input("Debes ingresar números del 1 al 10. Ingrese nuevamente:\n"))
