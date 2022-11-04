@@ -2,7 +2,5 @@ id_libro,titulo,genero,isbn,editorial,autor
 1,Python para principiantes,Tecnología,9798722827302,Google,Google Books
 2,Sangre de Campeón,novela,997585783,Mexico lib,Carlos Cauthemoc Sanchez
 3,Zorros y llamas,novela,996987654,La canela,Varios
-4,Python para la ciencia de datos,documental,963852741,silabuz,silabuz
-5,Un mundo para julius,novela,976584321,san marcos,Alfredo Bryce Echenique
-6,Cien postres en horno microondas,recetas,963258147,trome,gaston acurio
-7,En el Blanco,Thriller,9788497938518,DEBOLSILLO,Ken Follet
+4,hola mundo,tutorial,98563241,silabuz,silabuz
+6,don quijote de la mancha,novela,963258741,santillana,miguel de cervantes saavedra
