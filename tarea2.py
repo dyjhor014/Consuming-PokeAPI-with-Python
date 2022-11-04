@@ -28,11 +28,11 @@ def listar_pokemon(seleccion, seleccion_menu, opcion: str) -> None:
     if opcion == "4":
         for i in range(0, len(data["pokemon_species"])):
             pokemon = data["pokemon_species"][i]["name"]
-            print(f"Pokemon ({i+1}): {pokemon}")
+            print(f"Pokemon ({i}): {pokemon}")
     if opcion == "5":
         for i in range(0, len(data["pokemon"])):
             pokemon = data["pokemon"][i]["pokemon"]["name"]
-            print(f"Pokemon ({i+1}): {pokemon}")
+            print(f"Pokemon ({i}): {pokemon}")
     #print(data["pokemon"][0]["pokemon"]["name"])
 
 opcion = str(input("Ingresa una opción del Menu 1,2,3,4 o 5\n"))
