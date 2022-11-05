@@ -25,25 +25,30 @@ def listar_pokemon(seleccion, seleccion_menu, opcion: str) -> None:
     print(f"{'*'*50}\n")
     print(f"Lista de pokemons con el {seleccion_menu}: {seleccion}\n")
     print(f"{'*'*50}\n")
-    if opcion == "1":
+    if opcion == "1" or opcion == "2" or opcion == "4":
         for i in range(0, len(data["pokemon_species"])):
             pokemon = data["pokemon_species"][i]["name"]
             print(f"Pokemon ({i}): {pokemon}")
-    if opcion == "4":
-        for i in range(0, len(data["pokemon_species"])):
-            pokemon = data["pokemon_species"][i]["name"]
-            print(f"Pokemon ({i}): {pokemon}")
-    if opcion == "5":
+    if opcion == "3" or opcion == "5":
         for i in range(0, len(data["pokemon"])):
             pokemon = data["pokemon"][i]["pokemon"]["name"]
-            print(f"Pokemon ({i}): {pokemon}")
-    #print(data["pokemon"][0]["pokemon"]["name"])
+            print(f"Pokemon ({i+1}): {pokemon}")
 
 opcion = str(input("Ingresa una opción del Menu 1,2,3,4 o 5\n"))
 while opcion not in ("1","2","3","4","5"):
     opcion = str(input("Debes ingresar una opción del 1 al 6\n"))
 if opcion == "1":
     seleccion_menu = "generation"
+    listar(seleccion_menu)
+    seleccion = str(input(f"Ingresa el numero del {seleccion_menu}\n"))
+    listar_pokemon(seleccion, seleccion_menu, opcion)
+if opcion =="2":
+    seleccion_menu = "pokemon-shape"
+    listar(seleccion_menu)
+    seleccion = str(input(f"Ingresa el numero del {seleccion_menu}\n"))
+    listar_pokemon(seleccion, seleccion_menu, opcion)
+if opcion == "3":
+    seleccion_menu = "ability"
     listar(seleccion_menu)
     seleccion = str(input(f"Ingresa el numero del {seleccion_menu}\n"))
     listar_pokemon(seleccion, seleccion_menu, opcion)
