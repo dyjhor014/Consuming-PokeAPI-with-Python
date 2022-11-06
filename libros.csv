@@ -1,6 +1,7 @@
 id_libro,titulo,genero,isbn,editorial,autor
-1,Python para principiantes,Tecnología,9798722827302,Google,Google Books
-2,Sangre de Campeón,novela,997585783,Mexico lib,Carlos Cauthemoc Sanchez
+1,Curso de Programacion Python,tecnologia,9788441541160,anaya,"Arturo Montejo, Salud Jimenez"
+2,Sangre de Campeón,novela,9789687277431,diamante,Carlos Cauhtemoc Sanchez
 3,En el Blanco,thriller,9788497938518,debolsillo,Ken Follet 
-4,hola mundo,tutorial,98563241,silabuz,silabuz
-5,don quijote de la mancha,novela,963258741,santillana,miguel de cervantes saavedra
+4,Fisica Universitaria,ciencias,9786074422887,pearson,"Francis Sears, Mark Zemansky"
+5,Don Quijote de la Mancha,novela,9788430598670,susaeta,Miguel de Cervantes Saavedra
+6,El Valle del Terror,thriller,9788415089421,pluton,Arthur Conan Doyle

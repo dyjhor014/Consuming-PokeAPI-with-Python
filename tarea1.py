@@ -85,6 +85,30 @@ class Libro:
             genero = input("Ingresa el nombre del genero\n")
             buscar_genero = data[data["genero"].str.contains(genero)]
             return print(buscar_genero)
+            
+
+    def listar_autores(): #Opcion 8
+        print("-------Listar libros por número de autores-------\n")         
+        lista_libros = list(data['titulo']) #Convertir a lista la columna  titulo
+        lista_autores = list(data['autor'])
+        numero_autor = str(input("Ingrese el número de autores: "))
+        tuplas_libros = list(zip(lista_libros,lista_autores)) #Lista de tuplas de libro : autor
+        
+        if numero_autor == "1":
+            lista_filtrada = [tupla for tupla in tuplas_libros if tupla[1] .__contains__(",") is False ] #Crear lista de tuplas que no contengan el string ","
+            print(f"\nLos libros con un autor son: {len(lista_filtrada)}\n")
+            for key, value in lista_filtrada:
+                print(key,":",value)
+
+        elif numero_autor == "2":
+            lista_filtrada = [tupla for tupla in tuplas_libros if tupla[1].__contains__(",") ] #Crear lista de tuplas que contengan el string ","
+            print(f"\nLos libros con dos autores son: {len(lista_filtrada)}\n")
+            for key, value in lista_filtrada:
+                print(key,":",value)
+
+        else:
+            print(f"No se encontraron libros con {numero_autor} autores.")
+            
 
     def editar_libros(): #Opcion 9
         print("Edición y Actualización de datos de libros")
@@ -180,6 +204,8 @@ if opcion_elegida == "6":
     Libro.ordenar_libros()
 if opcion_elegida == "7":
     Libro.buscar_libros2()
+if opcion_elegida == "8":
+    Libro.listar_autores()
 if opcion_elegida == "9":
     Libro.editar_libros()
 if opcion_elegida == "10":
