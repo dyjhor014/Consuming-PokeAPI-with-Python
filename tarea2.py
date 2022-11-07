@@ -2,6 +2,11 @@ import os
 import requests
 os.system("clear")
 
+def run():
+    listar(seleccion_menu)
+    seleccion = str(input(f"Ingresa el numero del {seleccion_menu}\n"))
+    listar_pokemon(seleccion, seleccion_menu, opcion)
+
 #Funcion para listar las opciones del menú
 def listar(seleccion_menu: str) -> None:
         url = f"https://pokeapi.co/api/v2/{seleccion_menu}/"
@@ -28,37 +33,37 @@ def listar_pokemon(seleccion, seleccion_menu, opcion: str) -> None:
     if opcion == "1" or opcion == "2" or opcion == "4":
         for i in range(0, len(data["pokemon_species"])):
             pokemon = data["pokemon_species"][i]["name"]
-            print(f"Pokemon ({i}): {pokemon}")
+            url_pokemon = f"https://pokeapi.co/api/v2/pokemon/{pokemon}"
+            response_pokemon = requests.get(url_pokemon)
+            data_pokemon = response_pokemon.json()
+            imagen = data_pokemon['sprites']['other']['home']['front_default']
+            list_ability = [ability['ability']['name'] for ability in data_pokemon['abilities']]
+            print(f"{'*'*50}\nPokemon: {pokemon}\nHabilidades: {list_ability}\nImagen: {imagen}")
     if opcion == "3" or opcion == "5":
         for i in range(0, len(data["pokemon"])):
             pokemon = data["pokemon"][i]["pokemon"]["name"]
-            print(f"Pokemon ({i+1}): {pokemon}")
+            url_pokemon = f"https://pokeapi.co/api/v2/pokemon/{pokemon}"
+            response_pokemon = requests.get(url_pokemon)
+            data_pokemon = response_pokemon.json()
+            imagen = data_pokemon['sprites']['other']['home']['front_default']
+            list_ability = [ability['ability']['name'] for ability in data_pokemon['abilities']]
+            print(f"{'*'*50}\nPokemon: {pokemon}\nHabilidades: {list_ability}\nImagen: {imagen}")
 
 opcion = str(input("Ingresa una opción del Menu 1,2,3,4 o 5\n"))
 while opcion not in ("1","2","3","4","5"):
     opcion = str(input("Debes ingresar una opción del 1 al 6\n"))
 if opcion == "1":
     seleccion_menu = "generation"
-    listar(seleccion_menu)
-    seleccion = str(input(f"Ingresa el numero del {seleccion_menu}\n"))
-    listar_pokemon(seleccion, seleccion_menu, opcion)
+    run()
 if opcion =="2":
     seleccion_menu = "pokemon-shape"
-    listar(seleccion_menu)
-    seleccion = str(input(f"Ingresa el numero del {seleccion_menu}\n"))
-    listar_pokemon(seleccion, seleccion_menu, opcion)
+    run()
 if opcion == "3":
     seleccion_menu = "ability"
-    listar(seleccion_menu)
-    seleccion = str(input(f"Ingresa el numero del {seleccion_menu}\n"))
-    listar_pokemon(seleccion, seleccion_menu, opcion)
+    run()
 if opcion == "4":
     seleccion_menu = "pokemon-habitat"
-    listar(seleccion_menu)
-    seleccion = str(input(f"Ingresa el numero del {seleccion_menu}\n"))
-    listar_pokemon(seleccion, seleccion_menu, opcion)
+    run()
 if opcion == "5":
     seleccion_menu = "type"
-    listar(seleccion_menu)
-    seleccion = str(input(f"Ingresa el numero del {seleccion_menu}\n"))
-    listar_pokemon(seleccion, seleccion_menu,opcion)
+    run()
