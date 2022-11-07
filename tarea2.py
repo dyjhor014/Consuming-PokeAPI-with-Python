@@ -48,6 +48,14 @@ def listar_pokemon(seleccion, seleccion_menu, opcion: str) -> None:
             imagen = data_pokemon['sprites']['other']['home']['front_default']
             list_ability = [ability['ability']['name'] for ability in data_pokemon['abilities']]
             print(f"{'*'*50}\nPokemon: {pokemon}\nHabilidades: {list_ability}\nImagen: {imagen}")
+#Menu interactivo
+
+print("Opción 1: Listar pokemons por generación. Se ingresa alguna generación (1, 2, 3, ..) y se listan todos los pokemon respectivos.")
+print("Opción 2: Listar pokemons por forma. Se ingresa alguna forma (deben sugerir valores) y se listan todos los pokemons respectivos.")
+print("Opción 3: Listar pokemons por habilidad. Se deben sugerir opciones a ingresar para interactuar.")
+print("Opción 4: Listar pokemons por habitat. Se deben sugerir opciones a ingresar para interactuar.")
+print("Opción 5: Listar pokemons por tipo. Se deben sugerir opciones a ingresar para interactuar.\n\n")
+
 
 opcion = str(input("Ingresa una opción del Menu 1,2,3,4 o 5\n"))
 while opcion not in ("1","2","3","4","5"):
