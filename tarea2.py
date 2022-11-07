@@ -22,8 +22,8 @@ def listar(seleccion_menu: str) -> None:
 
 #Funcion para listar los pokemons segun la opcion elegida
 def listar_pokemon(seleccion, seleccion_menu, opcion: str) -> None:
-    """ while seleccion not in ("1","2","3","4","5","6","7","8","9"):
-        seleccion = str(input("Debes ingresar el numero del habitat\n")) """
+    while seleccion not in ("1","2","3","4","5","6","7","8","9"):
+        seleccion = str(input("Debes ingresar el numero del habitat\n"))
     url = f'https://pokeapi.co/api/v2/{seleccion_menu}/{seleccion}/'
     response = requests.get(url)
     data = response.json()
@@ -59,7 +59,7 @@ print("Opción 5: Listar pokemons por tipo. Se deben sugerir opciones a ingresar
 
 opcion = str(input("Ingresa una opción del Menu 1,2,3,4 o 5\n"))
 while opcion not in ("1","2","3","4","5"):
-    opcion = str(input("Debes ingresar una opción del 1 al 6\n"))
+    opcion = str(input("Debes ingresar una opción del 1 al 5\n"))
 if opcion == "1":
     seleccion_menu = "generation"
     run()
