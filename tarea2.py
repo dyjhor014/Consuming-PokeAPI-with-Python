@@ -51,7 +51,7 @@ def listar_pokemon(seleccion, seleccion_menu, opcion: str) -> None:
 
 opcion = str(input("Ingresa una opción del Menu 1,2,3,4 o 5\n"))
 while opcion not in ("1","2","3","4","5"):
-    opcion = str(input("Debes ingresar una opción del 1 al 6\n"))
+    opcion = str(input("Debes ingresar una opción del 1 al 5\n"))
 if opcion == "1":
     seleccion_menu = "generation"
     run()
